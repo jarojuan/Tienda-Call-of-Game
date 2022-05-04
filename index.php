@@ -50,7 +50,7 @@
                 <ul class="nav navbar-nav pull-right">
                     <li>
                         <!--añadir numero con php al carrito-->
-                        <a href="carrito.php" class="btn">CARRITO <span class="badge">0</span></a>
+                        <a href="carrito.php" class="btn"> <span class="fa-solid fa-cart-shopping"></span> CARRITO <span class="badge">0</span></a>
                     </li> 
                 </ul>
                 <ul class="nav navbar-nav pull-right">
@@ -66,6 +66,23 @@
             </div><!--/.nav-collapse -->
         </div>
     </nav>
+    <br>
+    <div  class="p-3 mb-2 bg-info text-white">
+        <div class="container" id="main">
+            <!-- Texto inical -->
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-4">Call of Game <i class="fa-solid fa-gamepad"></i></h1>
+                    <h2>Bienvenido</h2>
+                    <p class="lead">Aquí podrás encontrar una amplia selección de los mejores videojuegos.</p>
+                </div>
+            </div>
+            <!-- Juegos -->
+            <div class="row">
+                
+            </div>
+        </div>
+    </div>
     
 </body>
 </html>

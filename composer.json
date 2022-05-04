@@ -1,0 +1,22 @@
+{
+
+    "name": "jaro/tienda-online",
+    "description": "creación de una tienda online",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Juan"
+            
+        }
+    ],
+    "require": {
+
+    },
+    "autoload": {
+        "psr-4": {
+            "Jaro\\":"src/"
+        }
+    }
+
+}

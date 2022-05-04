@@ -1,0 +1,2 @@
+Carpeta webfonts y dentro de css archivo all.min.css forman parte 
+de Fontawesome para los iconos

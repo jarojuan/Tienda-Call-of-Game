@@ -1,0 +1,31 @@
+- COMO INSTALAR Y USAR COMPOSER
+Primero descargar de google
+
+- Se crea un archivo composer.json en la carpeta que contiene el proyecto,
+que inlcuye los datos del proyecto que va a usar composer
+Despues: 
+
+- Mediante consola:
+
+CMD: cd rutadondeestáelproyecto
+
+En este caso la ruta donde está el proyecto:
+C:\xampp\htdocs\proyectos\Tienda Online Prueba>
+
+- CMD: composer install
+
+Aparecerá en la carpeta donde está el proyecto el archivo 
+composer.lock y una nueva carpeta llamada vendor que 
+incluye la configuración.
+
+
+- ARCHIVO config.ini
+Incluirá la configuración para conectar con la base de datos
+
+- ARCHIVO .htaccess
+Se utiliza para evitar que cualquiera pueda acceder a los archivos sql, config.ini...etc
+
+
+
+
+- En la carperta src estan las clases?¿?

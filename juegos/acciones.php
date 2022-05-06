@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD']==='POST'){
 
         // Si el registro es correcto, nos redirige a la página de control de juegos
         if ($rpt) {
-            header('Location: juegos/control_juegos.php');
+            header('Location: control_juegos.php');
         }
         else{
             print 'Error al registrar el juego';
@@ -86,11 +86,11 @@ if ($_SERVER['REQUEST_METHOD']==='POST'){
         }
 
         // Se pasa la información a la función actualizar, que se encarga de modificar el juego con esos datos.
-        $rpt = $pelicula->actualizar($_params);
+        $rpt = $juego->actualizar($_params);
 
         //Si se actualiza correctamente, nos dirige de nuevo a la página de control de juegos
         if ($rpt) {
-            header('Location: juegos/control_juegos.php');
+            header('Location: control_juegos.php');
         }
         else{
             print 'Error al actualizar la película';
@@ -111,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD']==='GET'){
 
     //Si se elimina nos redirige a la página de control de juegos
     if ($rpt) {
-        header('Location: juego/control_juegos.php');
+        header('Location: control_juegos.php');
     }
     else{
         print 'Error al eliminar el juego';

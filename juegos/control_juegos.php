@@ -1,3 +1,9 @@
+<?php 
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,13 +26,13 @@
         <div class="container">
             <div class="navbar-header">
                 <!--Enlace en el nombre (icono)-->
-                <a class="navbar-brand" href="../index.php">Call of Game <i class="fa-solid fa-gamepad"></i></a>
+                <a class="navbar-brand" href="../usuarios/control.php">Call of Game <i class="fa-solid fa-gamepad"></i></a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
                 <li>
                     <!-- Crear archivo de pedidos -->
-                <a href="../" class="btn">PEDIDOS</a>
+                <a href="../pedidos/control_pedidos.php" class="btn">PEDIDOS</a>
                 </li> 
                 <!--Esta clase de bootstrap indica donde nos encontramos-->
                 <li class="active">
@@ -34,10 +40,11 @@
                 </li> 
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php print $_SESSION['usuario_info']['nombre_usuario']; ?> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <!-- Crear archivo de cerrar sesión y mostrar nombre de usuario -->
-                        <li><a href="../">Cerrar sesión</a></li>
+                        <!-- Cierra la sesión -->
+                        <li><a href="../usuarios/cerrar_sesion.php">Cerrar sesión</a></li>
                     </ul>
                 </li>
             </ul>

@@ -33,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD']==='POST'){
             'foto'=>subirFoto(),
             'precio'=>$_POST['precio'],
             'genero_id'=>$_POST['genero_id'],
+            'plataforma_id'=>$_POST['plataforma_id'],
             //Fecha en formato año, mes, dia
             'fecha'=>date('Y-m-d')
         );
@@ -72,6 +73,7 @@ if ($_SERVER['REQUEST_METHOD']==='POST'){
             'descripcion'=>$_POST['descripcion'],
             'precio'=>$_POST['precio'],
             'genero_id'=>$_POST['genero_id'],
+            'plataforma_id'=>$_POST['plataforma_id'],
             'fecha'=>date('Y-m-d'),
             'id'=>$_POST['id']
         );

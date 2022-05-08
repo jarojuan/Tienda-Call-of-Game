@@ -25,16 +25,13 @@ session_start();
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <!--Enlace en el nombre (icono)-->
                 <a class="navbar-brand" href="../usuarios/control.php">Call of Game <i class="fa-solid fa-gamepad"></i></a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
                 <li>
-                    <!-- Crear archivo de pedidos -->
                 <a href="../pedidos/control_pedidos.php" class="btn">PEDIDOS</a>
                 </li> 
-                <!--Esta clase de bootstrap indica donde nos encontramos-->
                 <li class="active">
                 <a href="control_juegos.php" class="btn">JUEGOS</a>
                 </li> 
@@ -42,8 +39,6 @@ session_start();
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php print $_SESSION['usuario_info']['nombre_usuario']; ?> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <!-- Crear archivo de cerrar sesión y mostrar nombre de usuario -->
-                        <!-- Cierra la sesión -->
                         <li><a href="../usuarios/cerrar_sesion.php">Cerrar sesión</a></li>
                     </ul>
                 </li>
@@ -72,10 +67,11 @@ session_start();
                             <tr>
                                 <th>#</th>
                                 <th>Título</th>
-                                <th>Género</th>
+                                <!-- <th>Género</th> -->
+                                <th>Plataforma</th>
                                 <th>Precio</th>
-                                <!-- <th class="text-center">Foto</th> -->
-                                <th>Foto</th>
+                                <th class="text-center">Foto</th>
+                                <!-- <th>Foto</th> -->
                                 <th></th>
                             </tr>
                         </thead>
@@ -107,9 +103,11 @@ session_start();
                                         <!--Se usa la variable contador para mostrar el título de cada pelicula-->
                                         <td><?php print $item['titulo'] ?></td>
                                         <!--Género-->
+                                        <!-- <td><?php print $item['nombre'] ?></td> -->
+                                        <!--Plataforma-->
                                         <td><?php print $item['nombre'] ?></td>
                                         <!--Precio-->
-                                        <td><?php print $item['precio'] ?></td>
+                                        <td><?php print $item['precio'] ?> €</td>
                                         <!-- Foto -->
                                         <td class="text-center">
                                             <?php 

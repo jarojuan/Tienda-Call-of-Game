@@ -19,8 +19,8 @@ class Juego {
 
     // Consulta para insertar nuevos juegos
     public function registrar($_params){
-        $sql = "INSERT INTO `juegos`(`titulo`, `descripcion`, `foto`, `precio`, `genero_id`, `fecha`) 
-        VALUES (:titulo,:descripcion,:foto,:precio,:genero_id,:fecha)";
+        $sql = "INSERT INTO `juegos`(`titulo`, `descripcion`, `foto`, `precio`, `genero_id`, `plataforma_id`, `fecha`) 
+        VALUES (:titulo,:descripcion,:foto,:precio,:genero_id,:plataforma_id,:fecha)";
 
         $resultado = $this->cn->prepare($sql);
 
@@ -30,6 +30,7 @@ class Juego {
             ":foto" => $_params['foto'],
             ":precio" => $_params['precio'],
             ":genero_id" => $_params['genero_id'],
+            ":plataforma_id" => $_params['plataforma_id'],
             ":fecha" => $_params['fecha'],
         );
 
@@ -42,7 +43,7 @@ class Juego {
 
     // Consulta para actualizar los juegos registrados.
     public function actualizar($_params){
-        $sql = "UPDATE `juegos` SET `titulo`=:titulo,`descripcion`=:descripcion,`foto`=:foto,`precio`=:precio,`genero_id`=:genero_id,`fecha`=:fecha  WHERE `id`=:id";
+        $sql = "UPDATE `juegos` SET `titulo`=:titulo,`descripcion`=:descripcion,`foto`=:foto,`precio`=:precio,`genero_id`=:genero_id,`plataforma_id`=:plataforma_id,`fecha`=:fecha  WHERE `id`=:id";
 
         $resultado = $this->cn->prepare($sql);
 
@@ -52,6 +53,7 @@ class Juego {
             ":foto" => $_params['foto'],
             ":precio" => $_params['precio'],
             ":genero_id" => $_params['genero_id'],
+            ":plataforma_id" => $_params['plataforma_id'],
             ":fecha" => $_params['fecha'],
             ":id" =>  $_params['id']
         );
@@ -81,11 +83,21 @@ class Juego {
 
     // Consulta para mostrar los datos de los juegos registrados
     public function mostrar(){
-        $sql = "SELECT juegos.id, titulo, descripcion, foto, nombre, precio, fecha FROM juegos 
+        // $sql = "SELECT juegos.id, titulo, descripcion, foto, nombre, precio, fecha FROM juegos 
+        
+        // INNER JOIN genero
+        // ON juegos.genero_id = genero.id ORDER BY juegos.id DESC
+        // ";
+
+        $sql = "SELECT juegos.id, titulo, descripcion, foto, genero.nombre, plataforma.nombre, precio, fecha FROM juegos 
         
         INNER JOIN genero
-        ON juegos.genero_id = genero.id ORDER BY juegos.id DESC
-        ";
+        ON juegos.genero_id = genero.id 
+        
+        INNER JOIN plataforma
+        ON juegos.plataforma_id = plataforma.id 
+        ORDER BY juegos.id DESC";
+
         
         $resultado = $this->cn->prepare($sql);
 

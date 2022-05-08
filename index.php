@@ -57,8 +57,7 @@
                 </ul>
                 <ul class="nav navbar-nav pull-right">
                     <li>
-                        <!--añadir numero con php al carrito-->
-                        <a href="pedidos/carrito.php" class="btn"> <span class="fa-solid fa-cart-shopping"></span> CARRITO <span class="badge">0</span></a>
+                        <a href="pedidos/carrito.php" class="btn"> <span class="fa-solid fa-cart-shopping"></span> CARRITO <span class="badge"><?php print cantidadJuegos(); ?></span></a>
                     </li> 
                 </ul>
                 <ul class="nav navbar-nav pull-right">
@@ -91,17 +90,17 @@
         <?php
           //El archivo vendor contiene la información necesaria para utilizar composer
           require 'vendor/autoload.php';
-          //La variable devuelve la clase Juego haciendo uso de composer
+          //La variable contiene la clase Juego haciendo uso de composer
           $juego = new Jaro\Juego;
-          //La variable devuelve la función mostrar() que se encuentra dentro de la clase Juego
+          //La variable contiene la función mostrar() que se encuentra dentro de la clase Juego
           $info_juegos = $juego->mostrar();
-          //Variable que devuelve la cantidad de juegos que hay registrados
+          //Variable que contiene la cantidad de juegos que hay registrados
           $cantidad = count($info_juegos);
           //Validación. El if solo se cumple si existen juegos registrados
           if ($cantidad > 0) {
             //El bucle da tantas vueltas como juegos haya para mostrar su información  
             for ($i=0; $i <$cantidad ; $i++) {
-              //Variable que devuelve la información de cada juego
+              //Variable que contiene la información de cada juego
               $item = $info_juegos[$i];                 
         ?>
             <div class="col-md-3">
@@ -114,23 +113,21 @@
                 <!-- Cuerpo del panel -->
                 <div class="panel-body">
                   <?php
-                    // $foto = 'upload/'.$item['foto'];
                     $foto = 'img/'.$item['foto'];
                     if (file_exists($foto)) {
                   ?>
-                    <!-- Esta clase de bootsrap ajusta a diseño responsive -->
                     <img src="<?php print $foto; ?>" class="img-responsive">                   
                   <?php }else{ ?>
                     <!-- Esta imagen sale cuando no hay otra -->
                     <!-- MIRAR BIEN TAMAÑO DE LAS FOTOS -->
-                    <img src="assets/imagenes/not-found.jpg" class="img-responsive">  
+                    <img src="img/not-found.jpg" class="img-responsive">  
                   <?php } ?>
                 </div>
                 <!-- Pie del panel -->
                 <div class="panel-footer">
                   <!-- Enlace que nos lleva al carrito de compra -->
                   <!-- Con el codigo php se indica el id de la pelicula que se añade -->
-                  <a href="carrito.php?id=<?php print $item['id']?>" class="btn btn-info btn-block">
+                  <a href="pedidos/carrito.php?id=<?php print $item['id']?>" class="btn btn-info btn-block">
                     <span class="fa-solid fa-cart-plus"></span> 
                      COMPRAR  <?php print $item['precio'] ?> €  
                   </a>

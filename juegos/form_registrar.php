@@ -104,6 +104,36 @@ session_start();
                                 </div>
                             </div>
                         </div>
+                        <!-- Plataformas -->
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Plataforma</label>
+                                    <!-- Lista desplegable -->
+                                    <select class="form-control" name="plataforma_id" required>
+                                        <option value=""></option>
+                                        <?php 
+                                        require '../vendor/autoload.php';
+                                        // Lama a la clase Plataforma
+                                        $plataforma = new Jaro\Plataforma;
+                                        //Lama a la función mostrar
+                                        $info_plataforma = $plataforma->mostrar();
+                                        // Contiene el nombre de todas las plataformas 
+                                        $cantidad = count($info_plataforma);
+                                        for ($i=0; $i <$cantidad ; $i++) { 
+                                            //Guarda el dato que hay en cada posición
+                                            $item = $info_plataforma[$i];
+                                        ?>
+                                            <!-- En cada opción se muestran los nombres de las plataformas -->
+                                            <option value="<?php print $item['id'] ?>"><?php print $item['nombre'] ?></option>
+                                        <!-- Cierre del for -->
+                                        <?php 
+                                        } 
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                         <!-- Seleccionar imagen -->
                         <div class="row">
                             <div class="col-md-4">

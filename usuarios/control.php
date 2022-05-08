@@ -22,13 +22,11 @@ session_start();
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <!--Enlace en el nombre (icono)-->
                 <a class="navbar-brand" href="control.php">Call of Game <i class="fa-solid fa-gamepad"></i></a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav pull-right">
                     <li>
-                        <!-- Crear archivo de pedidos -->
                         <a href="../pedidos/control_pedidos.php" class="btn">PEDIDOS</a>
                     </li> 
                     <li>
@@ -38,7 +36,6 @@ session_start();
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php print $_SESSION['usuario_info']['nombre_usuario']; ?> <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <!-- Crear archivo de cerrar sesión y mostrar nombre de usuario -->
                             <li><a href="cerrar_sesion.php">Cerrar sesión</a></li>
                         </ul>
                     </li>
@@ -73,6 +70,56 @@ session_start();
                                 <th></th>
                             </tr>
                         </thead>
+                        <tbody>
+                            <?php 
+                                require '../vendor/autoload.php';
+                                // Clase pedido
+                                $pedido = new Jaro\Pedido;
+                                // Función
+                                $info_pedido = $pedido->mostrarUltimos();
+                                // Nº de pedidos
+                                $cantidad = count($info_pedido);
+
+                                // Si hay algún pedido registrado
+                                if($cantidad > 0){
+                                    $cont=0;
+                                    for ($x=0; $x < $cantidad; $x++) {
+                                        $cont++;
+                                        // Datos de cada pedido
+                                        $item = $info_pedido[$x];
+                            ?>
+                                        <!-- Info de los juegos -->
+                                        <tr>
+                                            <td><?php print $cont ?></td>
+                                            <!-- Nombre y apellidos -->
+                                            <td><?php print $item['nombre'].' '.$item['apellidos'] ?></td>
+                                            <!--Id del pedido-->
+                                            <td><?php print $item['id'] ?></td>
+                                            <!--Precio total de la compra-->
+                                            <td><?php print $item['total'] ?> €</td>
+                                            <!-- Fecha de compra -->
+                                            <td><?php print $item['fecha'] ?></td>
+
+                                            <!--Boton de ver-->
+                                            <td class="text-center">
+                                            <a href="../pedidos/ver.php?id=<?php print $item['id'] ?>" class="btn btn-danger btn-sm"><i class="fa-solid fa-eye"></i></a>
+                                            </td>
+
+                                        </tr>
+                            <?php
+                                    // Lave del for
+                                    }
+                                // Llave del if
+                                }else{
+                            ?>
+                                    <td>
+                                        <td colspan="6">NO HAY PEDIDOS REGISTRADAS</td>
+                                    </td>
+                            <?php
+                                // Llave del else
+                                }
+                            ?>
+                        </tbody>
                     </table>
                 </fieldset>
             </div>

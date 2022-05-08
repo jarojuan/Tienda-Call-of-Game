@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     $usuario = new Jaro\Usuario;
     // Se pasan el nombre de usuario y la contraseña a la función login()
     $resultado = $usuario -> login($nombre_usuario, $clave);
-    // 
+    // Se pasan el nombre de usuario y la contraseña a la función login_cliente()
     $resultado_cliente = $usuario -> login_cliente($nombre_usuario, $clave);
 
     // Si el usuario administrador existe en la base de datos
@@ -24,17 +24,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         // Dirige al panel del administrador
         header('Location: control.php');
 
-    // Si el usuario cliente
+    // Si el usuario cliente existe en la base de datos
     }elseif($resultado_cliente){
         session_start();
         $_SESSION['usuario_info'] = array(
-            'nombre_usuario' => $resultado['nombre_usuario'],
+            'nombre_usuario' => $resultado_usuario['nombre_usuario'],
             'estado'=>1,    //1 sesion activa, 0 no
         );
 
-        // COMPROBAR
-        // Dirige al carrito?otro index??
-        header('Location: compra.php');
+        header('Location: ../index_usuario.php');
     }else{
             ?>
             <!DOCTYPE html>

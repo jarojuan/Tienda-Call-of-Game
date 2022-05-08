@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Se pasan los datos a la función que se encarga de registrar al nuevo usuario
     $persona_id = $persona-> registrar_usuario($_params);
 
-    // Crear otro index con la sesion arriba
+    // index en el que se muestra el nombre del usuario
     header('Location: ../index.php');
         
 

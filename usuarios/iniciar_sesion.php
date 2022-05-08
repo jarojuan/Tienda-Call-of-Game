@@ -56,7 +56,7 @@ session_start();
                 <ul class="nav navbar-nav pull-right">
                     <li>
                         <!--añadir numero con php al carrito-->
-                        <a href="../pedidos/carrito.php" class="btn"> <span class="fa-solid fa-cart-shopping"></span> CARRITO <span class="badge">0</span></a>
+                        <a href="../pedidos/carrito.php" class="btn"> <span class="fa-solid fa-cart-shopping"></span> CARRITO <span class="badge"></span></a>
                     </li> 
                 </ul>
                 <ul class="nav navbar-nav pull-right">

@@ -20,26 +20,16 @@ function actualizarJuego($id,$cantidad = FALSE){
     }
 }
 
-
+// Total de la compra
 function calcularTotal(){
     $total = 0;
 
         foreach($_SESSION['carrito'] as $indice => $value){
             $total += $value['precio'] * $value['cantidad'];
         }
-
-        return $total;
-    
+        return $total;  
 }
 
-// $total_pedido = 0;
-//                         // Uso foreach porque los índices no son consecutivos
-//                         foreach ($_SESSION['carrito'] as $indice => $value) {
-//                             $c++;
-//                             //El coste total de los productos del carrito?
-//                             $total = $value['precio'] * $value['cantidad'];
-                            
-//                             $total_pedido += $total;
 
 
 function cantidadJuegos(){

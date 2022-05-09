@@ -132,10 +132,11 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             <tbody>
                 <?php 
                 
+                $total_pedido = 0;
                 // Si existe la sesion y no esta vacia 
                     if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])){
                         $c=0;
-                        $total_pedido = 0;
+                        
                         // Uso foreach porque los índices no son consecutivos
                         foreach ($_SESSION['carrito'] as $indice => $value) {
                             $c++;
@@ -215,7 +216,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                 <tr>
                     <td colspan="5" class="text-right">Total</td>
                     <!-- Total de la compra-->
-                    <td><?php print calcularTotal(); ?> €</td>
+                    <td><?php print $total_pedido; ?> €</td>
                     <td></td> 
                 </tr>
             </tfoot>

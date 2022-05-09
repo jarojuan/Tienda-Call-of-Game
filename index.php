@@ -57,7 +57,7 @@
                 </ul>
                 <ul class="nav navbar-nav pull-right">
                     <li>
-                        <a href="pedidos/carrito.php" class="btn"> <span class="fa-solid fa-cart-shopping"></span> CARRITO <span class="badge"><?php print cantidadJuegos(); ?></span></a>
+                        <a href="pedidos/carrito.php" class="btn"> <span class="fa-solid fa-cart-shopping"></span> CARRITO <span class="badge"></span></a>
                     </li> 
                 </ul>
                 <ul class="nav navbar-nav pull-right">

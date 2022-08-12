@@ -130,7 +130,7 @@ session_start();
 
                                         <!-- Botones de eliminar y editar -->
                                         <td class="text-center">
-                                            <!-- Modificar iconos -->
+                                            
                                             <!-- Botón de eliminar -->
                                             <a href="acciones.php?id=<?php print $item['id'] ?>" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash-can"></i></a>
 

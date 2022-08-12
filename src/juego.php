@@ -43,7 +43,9 @@ class Juego {
 
     // Consulta para actualizar los juegos registrados.
     public function actualizar($_params){
-        $sql = "UPDATE `juegos` SET `titulo`=:titulo,`descripcion`=:descripcion,`foto`=:foto,`precio`=:precio,`genero_id`=:genero_id,`plataforma_id`=:plataforma_id,`fecha`=:fecha  WHERE `id`=:id";
+        $sql = "UPDATE `juegos` SET `titulo`=:titulo,`descripcion`=:descripcion,`foto`=:foto,
+        `precio`=:precio,`genero_id`=:genero_id,`plataforma_id`=:plataforma_id,`fecha`=:fecha  
+        WHERE `id`=:id";
 
         $resultado = $this->cn->prepare($sql);
 
@@ -83,11 +85,6 @@ class Juego {
 
     // Consulta para mostrar los datos de los juegos registrados
     public function mostrar(){
-        // $sql = "SELECT juegos.id, titulo, descripcion, foto, nombre, precio, fecha FROM juegos 
-        
-        // INNER JOIN genero
-        // ON juegos.genero_id = genero.id ORDER BY juegos.id DESC
-        // ";
 
         $sql = "SELECT juegos.id, titulo, descripcion, foto, genero.nombre, plataforma.nombre, precio, fecha FROM juegos 
         

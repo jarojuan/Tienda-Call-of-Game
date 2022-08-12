@@ -132,17 +132,18 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             <tbody>
                 <?php 
                 
+                // Se declara la variable que contendrá el valor total del carrito
                 $total_pedido = 0;
-                // Si existe la sesion y no esta vacia 
+                    // Si existe la sesion y no esta vacia 
                     if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])){
                         $c=0;
                         
                         // Uso foreach porque los índices no son consecutivos
                         foreach ($_SESSION['carrito'] as $indice => $value) {
                             $c++;
-                            //El coste total de los productos del carrito?
+                            //El coste total de los juegos
                             $total = $value['precio'] * $value['cantidad'];
-                            
+                            // Se va sumando el precio de los juegos
                             $total_pedido += $total;
                 ?>
 
@@ -192,7 +193,6 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                                         <span class="fa-solid fa-trash-can"></span>
                                         </a>
                                     </td>
-
                                 </form>
                             </tr>
                         
@@ -228,7 +228,6 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
               <a href="../index.php" class="btn btn-info">Seguir comprando</a>
             </div>
             <div class="pull-right">
-                <!-- MIRAR -->
                 <a href="finalizar_compra.php" class="btn btn-success">Finalizar compra</a>
             </div>
         </div>

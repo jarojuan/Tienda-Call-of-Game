@@ -41,7 +41,8 @@ class Pedido {
     // Registrar los detalles del pedido
     public function registrarDetalle($_params){
         // Consulta para insertar los datos en la tabla detalle_pedido
-        $sql= "INSERT INTO `detalle_pedido`(`pedido_id`, `juego_id`, `precio`, `cantidad`) VALUES (:pedido_id, :juego_id, :precio, :cantidad)";
+        $sql= "INSERT INTO `detalle_pedido`(`pedido_id`, `juego_id`, `precio`, `cantidad`) 
+        VALUES (:pedido_id, :juego_id, :precio, :cantidad)";
 
         $resultado = $this->cn->prepare($sql);
 

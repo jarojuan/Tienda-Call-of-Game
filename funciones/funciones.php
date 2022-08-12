@@ -1,6 +1,6 @@
 <?php
 
-
+// Añade juegos al carrito
 function agregarJuego($resultado, $id, $cantidad = 1){
     $_SESSION['carrito'][$id] = array(
         'id' => $resultado['id'],
@@ -11,7 +11,7 @@ function agregarJuego($resultado, $id, $cantidad = 1){
    );
 }
 
-
+// Actualiza el numero de juegos que contiene el carrito
 function actualizarJuego($id,$cantidad = FALSE){
     if($cantidad){
         $_SESSION['carrito'][$id]['cantidad'] = $cantidad;
@@ -31,7 +31,7 @@ function calcularTotal(){
 }
 
 
-
+// Nº total de juegos en el carrito
 function cantidadJuegos(){
     $cantidad = 0;
     if(isset($_SESSION['carrito'])){

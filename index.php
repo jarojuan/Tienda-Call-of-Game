@@ -107,8 +107,8 @@
               <div class="panel panel-danger">
                 <!-- Cabecera del panel -->
                 <div class="panel-heading ">
-                  <!-- Se muestra el titulo de cada pelicula -->
-                  <h3 class="text-center titulo-pelicula"><?php print $item['titulo'] ?></h3>
+                  <!-- Se muestra el titulo de cada juego -->
+                  <h3 class="text-center titulo-juego"><?php print $item['titulo'] ?></h3>
                 </div>
                 <!-- Cuerpo del panel -->
                 <div class="panel-body">
@@ -118,15 +118,13 @@
                   ?>
                     <img src="<?php print $foto; ?>" class="img-responsive">                   
                   <?php }else{ ?>
-                    <!-- Esta imagen sale cuando no hay otra -->
-                    <!-- MIRAR BIEN TAMAÑO DE LAS FOTOS -->
                     <img src="img/not-found.jpg" class="img-responsive">  
                   <?php } ?>
                 </div>
                 <!-- Pie del panel -->
                 <div class="panel-footer">
                   <!-- Enlace que nos lleva al carrito de compra -->
-                  <!-- Con el codigo php se indica el id de la pelicula que se añade -->
+                  <!-- Con el codigo php se indica el id del juego que se añade -->
                   <a href="pedidos/carrito.php?id=<?php print $item['id']?>" class="btn btn-info btn-block">
                     <span class="fa-solid fa-cart-plus"></span> 
                      COMPRAR  <?php print $item['precio'] ?> €  
